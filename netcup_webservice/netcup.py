@@ -207,7 +207,7 @@ class NetcupWebservice:
             params = {
                 'loginName': self.loginname,
                 'password': self.password,
-                'vservername': vserver_name,
+                'vserverName': vserver_name,
                 'year': year,
                 'month': month,
                 'day': day
@@ -233,7 +233,7 @@ class NetcupWebservice:
             params = {
                 'loginName': self.loginname,
                 'password': self.password,
-                'vservername': vserver_name,
+                'vserverName': vserver_name,
                 'year': year,
                 'month': month
             }
