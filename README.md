@@ -1,5 +1,8 @@
 # `netcup-webservice` - unofficial client for Netcup's API
 
+[![netcup.com](https://www.netcup.com/uploads/netcup_set_C_728x90_b94e135b39.png)](https://www.mihnea.dev/netcup-vouchers)
+^^ Click to support me AND redeem a netcup DISCOUNT VOUCHER on [www.mihnea.dev](https://www.mihnea.dev/)
+
 An unofficial Python client library for interacting with Netcup's server control panel webservice. This library allows you to manage your vServers (virtual servers) and interact with the Netcup API programmatically.
 
 **Disclaimer**: This project is not affiliated with, endorsed, or sponsored by Netcup GmbH. It is an independent, open-source project created to simplify interaction with the Netcup API.
