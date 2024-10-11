@@ -15,7 +15,7 @@ An unofficial Python client library for interacting with Netcup's server control
 ## Installation
 
 ```bash
-pip install netcup-webservice==0.1.0
+pip install netcup-webservice
 ```
 
 ## Usage
