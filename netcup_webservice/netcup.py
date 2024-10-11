@@ -30,7 +30,7 @@ class NetcupWebservice:
             str: The nickname of the vServer, or an error message in case of a SOAP fault.
         """
         try:
-            params = {'loginName': self.loginname, 'password': self.password, 'vserverName': vserver_name}
+            params = {'loginName': self.loginname, 'password': self.password, 'vservername': vserver_name}
             result = self.client.service.getVServerNickname(**params)
             return result
         except Fault as e:
@@ -48,7 +48,7 @@ class NetcupWebservice:
             str: The result of the nickname update operation, or an error message in case of a SOAP fault.
         """
         try:
-            params = {'loginName': self.loginname, 'password': self.password, 'vserverName': vserver_name, 'nickname': nickname}
+            params = {'loginName': self.loginname, 'password': self.password, 'vservername': vserver_name, 'nickname': nickname}
             result = self.client.service.setVServerNickname(**params)
             return result
         except Fault as e:
@@ -252,7 +252,7 @@ class NetcupWebservice:
             str: The vServer information, or an error message in case of a SOAP fault.
         """
         try:
-            params = {'loginName': self.loginname, 'password': self.password, 'vserverName': vserver_name}
+            params = {'loginName': self.loginname, 'password': self.password, 'vservername': vserver_name}
             result = self.client.service.getVServerInformation(**params)
             return result
         except Fault as e:
@@ -372,7 +372,7 @@ class NetcupWebservice:
             str: The result of the operation, or an error message in case of a SOAP fault.
         """
         try:
-            params = {'loginName': self.loginname, 'password': self.password, 'vserverName': vserver_name, 'vlanID': vlan_id}
+            params = {'loginName': self.loginname, 'password': self.password, 'vservername': vserver_name, 'vlanID': vlan_id}
             result = self.client.service.addCloudVLANInterface(**params)
             return result
         except Fault as e:
@@ -449,7 +449,7 @@ class NetcupWebservice:
             str: The count of log entries, or an error message in case of a SOAP fault.
         """
         try:
-            params = {'loginName': self.loginname, 'password': self.password, 'vserverName': vserver_name}
+            params = {'loginName': self.loginname, 'password': self.password, 'vservername': vserver_name}
             result = self.client.service.getVServerLogEntryCount(**params)
             return result
         except Fault as e:
@@ -468,24 +468,24 @@ class NetcupWebservice:
             str: The list of log entries, or an error message in case of a SOAP fault.
         """
         try:
-            params = {'loginName': self.loginname, 'password': self.password, 'vserverName': vserver_name, 'start': start, 'limit': limit}
+            params = {'loginName': self.loginname, 'password': self.password, 'vservername': vserver_name, 'start': start, 'limit': limit}
             result = self.client.service.getVServerLogEntries(**params)
             return result
         except Fault as e:
             return f"SOAP Fault occurred: {e.message}"
 
-    def set_panel_settings(self, panel_settings):
+    def set_panel_settings(self, show_nickname):
         """
         Update the control panel settings.
 
         Args:
-            panel_settings (dict): A dictionary of settings to update.
+            show_nickname (bool): A boolean value indicating whether to show the vServer nickname.
 
         Returns:
-            str: The result of the update operation, or an error message in case of a SOAP fault.
+            bool: True if the operation is successful, False otherwise, or an error message in case of a SOAP fault.
         """
         try:
-            params = {'loginName': self.loginname, 'password': self.password, 'panelSettings': panel_settings}
+            params = { 'loginName': self.loginname, 'password': self.password, 'showNickname': show_nickname }
             result = self.client.service.setPanelSettings(**params)
             return result
         except Fault as e:
