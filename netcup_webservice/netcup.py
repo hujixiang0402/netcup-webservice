@@ -190,35 +190,53 @@ class NetcupWebservice:
         except Fault as e:
             return f"SOAP Fault occurred: {e.message}"
 
-    def get_vserver_traffic_of_day(self, vserver_name):
+    def get_vserver_traffic_of_day(self, vserver_name, year, month, day):
         """
-        Get the traffic usage of the specified vServer for the current day.
+        Get the traffic usage of the specified vServer for a specific day.
 
         Args:
             vserver_name (str): The name of the vServer.
+            year (int): The year for which to get traffic data.
+            month (int): The month for which to get traffic data.
+            day (int): The day for which to get traffic data.
 
         Returns:
             str: The traffic data for the day, or an error message in case of a SOAP fault.
         """
         try:
-            params = {'loginName': self.loginname, 'password': self.password, 'vserverName': vserver_name}
+            params = {
+                'loginName': self.loginname,
+                'password': self.password,
+                'vservername': vserver_name,
+                'year': year,
+                'month': month,
+                'day': day
+            }
             result = self.client.service.getVServerTrafficOfDay(**params)
             return result
         except Fault as e:
             return f"SOAP Fault occurred: {e.message}"
 
-    def get_vserver_traffic_of_month(self, vserver_name):
+    def get_vserver_traffic_of_month(self, vserver_name, year, month):
         """
-        Get the traffic usage of the specified vServer for the current month.
+        Get the traffic usage of the specified vServer for a specific month.
 
         Args:
             vserver_name (str): The name of the vServer.
+            year (int): The year for which to get traffic data.
+            month (int): The month for which to get traffic data.
 
         Returns:
             str: The traffic data for the month, or an error message in case of a SOAP fault.
         """
         try:
-            params = {'loginName': self.loginname, 'password': self.password, 'vserverName': vserver_name}
+            params = {
+                'loginName': self.loginname,
+                'password': self.password,
+                'vservername': vserver_name,
+                'year': year,
+                'month': month
+            }
             result = self.client.service.getVServerTrafficOfMonth(**params)
             return result
         except Fault as e:
