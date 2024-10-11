@@ -48,7 +48,7 @@ class NetcupWebservice:
             str: The result of the nickname update operation, or an error message in case of a SOAP fault.
         """
         try:
-            params = {'loginName': self.loginname, 'password': self.password, 'vservername': vserver_name, 'nickname': nickname}
+            params = {'loginName': self.loginname, 'password': self.password, 'vservername': vserver_name, 'vservernickname': nickname}
             result = self.client.service.setVServerNickname(**params)
             return result
         except Fault as e:
